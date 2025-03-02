@@ -1,7 +1,11 @@
 function solution(diffs, times, limit) {
     let left = 1
-    let right = Math.max(...diffs)
+    let right = 0;
     
+    diffs.forEach((item) => {
+        if (right < item) right = item;
+    });
+
     while (left <= right) {
         const mid = Math.floor((left + right) / 2)
         const result = checkTime(diffs, times, mid)
